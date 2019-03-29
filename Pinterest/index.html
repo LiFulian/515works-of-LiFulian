@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="imges/bitbug_favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/reset200802.css" />
+    <!-- <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/main.css" /> -->
+    <script src="js/jquery-3.3.1.js"></script>
+    <!-- <script src="js/login.js"></script>
+    <script src="js/main.js"></script> -->
+    <script src="js/cookie.js"></script>
+    <link rel="stylesheet" href="" />
+    <title>Pinterest</title>
+    <style>
+      #login {
+        background: rgba(0, 0, 0, 0.5);
+        position: relative;
+        min-height: 638px;
+        padding: 16px 0;
+        overflow: hidden;
+        z-index: 999;
+      }
+      #login #button {
+        /* box-shadow: rgb(35, 156, 255) 0 0 3px 3px; */
+        width: 130px;
+        height: 44px;
+        padding: 10px 14px;
+        position: absolute;
+        top: 48px;
+        left: 24px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 600;
+        background-color: rgb(239, 239, 239);
+        color: rgb(0, 0, 0);
+        border: none;
+        cursor: pointer;
+      }
+      #login #button:hover {
+        opacity: 0.847;
+      }
+      #login-con {
+        text-align: center;
+        box-sizing: border-box;
+        width: 440px;
+        height: 583px;
+        padding: 20px 10px;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgb(255, 2555, 255);
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 2px 10px;
+      }
+      #red {
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        background-color: rgb(189, 8, 28);
+        border-radius: 50% 50% 50% 10%;
+        bottom: 0;
+        right: -295px;
+        padding: 10px;
+      }
+      #red-con {
+        width: 220px;
+        height: 137px;
+        padding: 15px;
+        position: absolute;
+        bottom: 0;
+      }
+      #red-con-div {
+        color: #fff;
+        font-size: 21px;
+        padding: 8px;
+        line-height: 28px;
+      }
+      #red-con-btn {
+        color: rgb(255, 255, 255);
+        display: inline-block;
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 4px;
+        padding: 8px 18px;
+        font-size: 15px;
+        margin-top: 10px;
+        margin-left: 8px;
+        box-sizing: content-box;
+        height: 23px;
+        line-height: 23px;
+        box-shadow: none;
+        cursor: pointer;
+        background-color: transparent;
+      }
+      #login-con-logo {
+        height: 45px;
+        margin: 5px auto;
+        text-align: center;
+      }
+      #login-con-logo img {
+        width: 45px;
+      }
+      #login-con h3 {
+        text-align: center;
+        margin: 10px auto 25px;
+
+        font-size: 32px;
+        width: 270px;
+        color: rgb(51, 51, 51);
+        letter-spacing: 1.2px;
+      }
+      #login-con-div1 {
+        text-align: center;
+        color: rgb(51, 51, 51);
+        font-size: 16px;
+        margin: 0 auto 30px;
+        line-height: 20px;
+        width: 270px;
+      }
+      #login-sm-con {
+        width: 268px;
+        margin: 0 auto;
+      }
+
+      #login-sm-con input {
+        box-sizing: border-box;
+        height: 40px;
+        width: 268px;
+        margin: 7px 0;
+        font-size: 16px;
+        text-indent: 10px;
+        border-radius: 4px;
+        border: 1px rgb(142, 142, 142) solid;
+      }
+      /* 边框阴影（box-shadow）的基本语法：
+box-shadow：color  h-shadow  v-shadow blur spread  inset；
+color：阴影颜色 ------------ 可选
+h-shadow ：水平偏移量 ----必选          
+v-shadow：垂直偏移量-----必选
+blur：模糊距离 -------------可选
+spread：阴影尺寸---------- 可选
+inset：内阴影 --------------可选 */
+      #login-sm-con input:focus {
+        box-shadow: rgb(35, 156, 255) 0 0 3px 3px;
+      }
+      #btn1 {
+        background-color: rgb(230, 0, 35);
+        color: rgb(255, 255, 255);
+        width: 100%;
+        height: 36px;
+        font-size: 15px;
+        margin-top: 10px;
+        line-height: 36px;
+        cursor: pointer;
+        box-shadow: none;
+        border: none;
+        border-radius: 4px;
+      }
+      #btn1:hover {
+        background-color: rgb(209, 0, 31);
+      }
+      #login-other {
+        /* border: 1px black solid; */
+        height: 100px;
+      }
+      #have-login {
+        display: inline-block;
+        line-height: 24px;
+        color: rgb(105, 105, 105);
+      }
+      #have-login:hover {
+        cursor: pointer;
+        color: rgb(0, 0, 0);
+        font-weight: 600;
+        border-bottom: 1px black solid;
+      }
+      #no-login {
+        display: none;
+        line-height: 24px;
+        color: rgb(105, 105, 105);
+      }
+      #no-login:hover {
+        cursor: pointer;
+        color: rgb(0, 0, 0);
+        font-weight: 600;
+        border-bottom: 1px black solid;
+      }
+
+      .tip {
+        display: inline-block;
+        width: 268px;
+        text-align: left;
+        color: #e3780c;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      #uimg {
+        display: none;
+        position: relative;
+        width: 108px;
+        height: 108px;
+        background-color: #8e8e8e;
+        color: #fff;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 108px;
+        text-align: center;
+        border-radius: 50%;
+        margin: auto;
+      }
+      #uname {
+        line-height: 50px;
+      }
+      #btn2 {
+        background-color: rgb(66, 133, 244);
+        color: rgb(255, 255, 255);
+        width: 100%;
+        height: 38px;
+        border: 1px black solid;
+        font-size: 15px;
+        font-weight: 600;
+        margin: 10px 0;
+        line-height: 38px;
+        cursor: pointer;
+        box-shadow: none;
+        border: none;
+        border-radius: 2px;
+      }
+      #btn2:hover {
+        background-color: rgb(23, 115, 190);
+      }
+      /* main */
+      /* 注册成功后的页面css */
+      #main {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        z-index: 0;
+      }
+      #header {
+        z-index: 2;
+        box-sizing: border-box;
+        width: 100%;
+        height: 64px;
+        padding: 8px 18px;
+        position: fixed;
+        background-color: #fff;
+      }
+      .header-logo {
+        width: 48px;
+        float: left;
+      }
+      #header div {
+        float: left;
+      }
+      #search {
+        box-sizing: border-box;
+        margin: 4px;
+        padding: 4px 10px;
+        margin-right: 20px;
+        margin-left: 10px;
+        height: 40px;
+        border: 1px black slateblue;
+        border-radius: 4px;
+        background-color: #efefef;
+      }
+      #search img {
+        height: 32px;
+      }
+      #search-input {
+        line-height: 16px;
+        font-size: 16px;
+        vertical-align: top;
+        height: 30px;
+        width: 300px;
+        border: none;
+        background-color: #efefef;
+        margin-left: 5px;
+      }
+      #user1 {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: #8e8e8e;
+        color: #fff;
+      }
+      #user2 {
+        margin-left: 10px;
+        height: 24px;
+        border-radius: 50%;
+        color: #8e8e8e;
+      }
+      #home,
+      #star,
+      #news,
+      #inform,
+      #more,
+      #user {
+        border-radius: 1000px;
+        font-size: 16px;
+        padding: 12px 16px;
+        line-height: 24px;
+        font-weight: 600;
+        color: #333;
+        /* border: 1px black solid; */
+      }
+      #quit:hover,
+      #home:hover,
+      #star:hover,
+      #news:hover,
+      #user:hover,
+      #inform:hover,
+      #more:hover {
+        cursor: pointer;
+        background-color: #efefef;
+      }
+      #quit {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 296px;
+        background-color: #fff;
+        border: 1px solid #efefef;
+        box-shadow: #efefef;
+        border-radius: 8px;
+        padding: 20px;
+      }
+      .imgbg {
+        background-color: #000;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        box-shadow: none;
+        border: none;
+      }
+      #quit-h1 {
+        font-weight: 700;
+        font-size: 16;
+        line-height: 24px;
+      }
+      #quit-p {
+        color: #333;
+        font-size: 400 !important;
+      }
+      /*大层*/
+      .container {
+        z-index: 1;
+        width: 900px;
+        margin: 0 auto;
+        padding-top: 70px;
+      }
+      /*瀑布流层*/
+      .waterfall {
+        /* -moz-column-count:4;  */
+        /* Firefox */
+        /* -webkit-column-count:4;  */
+        /* Safari 和 Chrome */
+
+        column-count: 3; /* 用整数值来定义列数。不允许负值 */
+        -moz-column-gap: 1em;
+        -webkit-column-gap: 1em;
+        column-gap: 1em; /*用长度值来定义列与列之间的间隙。不允许负值*/
+      }
+      /*一个内容层*/
+      .item {
+        position: relative;
+        padding: 1em;
+        margin: 0 0 1em 0;
+        page-break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        break-inside: avoid;
+        /* border: 1px solid rgb(105, 105, 105); */
+        border-radius: 6px;
+        cursor: pointer;
+        /* cursor: url(imges/big.jpg); */
+      }
+      .item p {
+        height: 20px;
+      }
+
+      .item img {
+        background-color: black;
+        border-radius: 8px;
+        width: 100%;
+      }
+
+      .star {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        background: red;
+        border-radius: 8px;
+        padding: 10px 34px;
+        height: 48px;
+        line-height: 48px;
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .star:hover {
+        background: rgb(156, 0, 24);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 下面是注册 -->
+    <div id="login">
+      <button id="button" type="button">登录</button>
+      <div id="login-con">
+        <div id="login-con-logo">
+          <img src="imges/logo.png" alt="" />
+        </div>
+        <h3>注册以查看更多</h3>
+        <div id="login-con-div1">
+          使用免费账户获取&nbsp;Pinterest&nbsp;的最佳点子
+        </div>
+        <div id="login-sm-con">
+          <form id="form" action="" method="POST">
+            <input id="email" type="text" name="email" placeholder="电子邮箱" />
+            <span class="email-tip tip"></span>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="创建密码"
+            />
+            <span class="password-tip tip"></span>
+            <button type="button" id="btn1">继续</button>
+          </form>
+          <div id="uimg"></div>
+          <span id="uname"></span>
+          <button id="btn2"></button>
+          <div id="login-other"></div>
+          <p id="have-login">已经加入了我们？登录</p>
+          <br /><br />
+          <p id="no-login">需要一个账户？立即注册</p>
+        </div>
+
+        <div id="red">
+          <div id="red-con">
+            <div id="red-con-div">Pinterest&nbsp;帮助你寻找想尝试的创意。</div>
+            <button id="red-con-btn">如何运作</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="other"></div>
+    </div>
+    <!-- 下面是主页 -->
+
+    <div id="main">
+      <div id="header">
+        <img class="header-logo" src="imges/logo.png" alt="" />
+        <div id="search">
+          <img src="imges/search.png" alt="" />
+          <input id="search-input" type="text" placeholder="搜索" />
+        </div>
+        <div id="home">主页</div>
+        <div id="star">关注</div>
+        <div id="user">
+          <div id="user1"></div>
+          <div id="user2"></div>
+        </div>
+        <div id="news">消息</div>
+        <div id="inform">通知</div>
+        <div id="more">个人</div>
+        <div id="quit">
+          <h1 id="quit-h1">退出</h1>
+          <p id="quit-p">如果退出，你将无法收藏创意或浏览个人主页。</p>
+        </div>
+      </div>
+      <!-- 主页的图片 -->
+      <div class="container">
+        <div class="waterfall">
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (1).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (2).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (3).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (4).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (5).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (6).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (7).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (8).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (9).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (10).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (11).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (12).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (13).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/cat (14).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (1).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (2).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (3).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (4).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (5).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (6).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (7).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (8).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (9).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (10).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (11).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (12).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (13).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (14).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (15).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (16).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (17).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (18).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (19).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (20).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (21).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (22).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (23).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (24).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (25).jpg" /></div>
+            <p></p>
+          </div>
+          <div class="item">
+            <div class="imgbg"><img src="imges/diy (26).jpg" /></div>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        $(window).scrollTop(0);
+      }, 10);
+    };
+    $(function() {
+      //login.js
+      //刷新回到顶部
+      $("body").css("overflow", "hidden");
+      beginSet();
+      beginCheck();
+      function beginCheck() {
+        if (getCookie("username")) {
+          welcome(); //如果存在cookie，进行欢迎
+        } else {
+          begin1(); //如果不存在cookie，进入注册页面；
+        }
+      }
+      function welcome() {
+        //用户第二次登录，利用cookie欢迎用户回来
+        $("#form").css("display", "none");
+        $("#red").css("display", "none");
+        $("#login-con-div1").css("display", "none");
+        $("#login-con h3").html("欢迎回来，" + getCookie("name") + "!");
+        $("#uname").html(getCookie("name"));
+        var firstWord = getCookie("name")
+          .charAt(0)
+          .toUpperCase();
+        $("#uimg")
+          .css("display", "block")
+          .html(firstWord);
+        $("#btn2")
+          .html("以" + getCookie("name") + "的身份继续")
+          .click(function() {
+            $("#login").css("display", "none");
+            $("body").css("overflow", "visible");
+          });
+        $("#have-login")
+          .html("不是你？使用其他账户登录")
+          .click(function() {
+            beginLogin();
+          });
+        $("#button")
+          .html("注册")
+          .click(function() {
+            beginRegiste();
+          });
+        $("#no-login")
+          .css("display", "inline-block")
+          .click(function() {
+            beginRegiste();
+          });
+      }
+      function begin1() {
+        $("#btn2").css("display", "none");
+        $("#button,#no-login").click(function() {
+          reset(); //清空表单
+          beginRegiste(); //注册
+        });
+        $("#have-login").click(function() {
+          reset(); //清空表单
+          beginLogin(); //登录
+        });
+        $("#btn1").click(function() {
+          continue1();
+        });
+      }
+      function beginSet() {
+        $("#quit").click(function() {
+          delCookie("username");
+          location.reload();
+        });
+        setInterval(function() {
+          $("#login").css("width", $(window).width());
+          $("#login").css("height", $(window).height());
+        }, 30);
+      }
+      function beginLogin() {
+        //登录初始化
+        $("#login>#button")
+          .css("box-shadow", "rgb(35, 156, 255) 0 0 3px 3px")
+          .html("注册");
+        $("#login-con h3").html("登录以查看更多");
+        $("#login-sm-con #email").attr("placeholder", "电子邮件地址或电话号码");
+        $("#login-sm-con #password").attr("placeholder", "密码");
+        $("#have-login").html("还不是&nbsp;Pinterest&nbsp;用户？注册");
+        $("#email").val("");
+        $("#password").val("");
+        setTimeout(function() {
+          $("#login>#button").css("box-shadow", "none");
+        }, 100);
+        $("#form,#red").css("display", "block");
+        $("#no-login,#uimg,#uname,#btn2").css("display", "none");
+        $("#button,#have-login")
+          .unbind("click")
+          .click(function() {
+            beginRegiste();
+          });
+        $("#btn1").click(function() {
+          continue1();
+        });
+      }
+      function beginRegiste() {
+        //注册初始化
+        $("#login>#button")
+          .css("box-shadow", "rgb(35, 156, 255) 0 0 3px 3px")
+          .html("登录");
+        $("#login-con h3").html("注册以查看更多");
+        $("#login-sm-con #email").attr("placeholder", "电子邮件");
+        $("#login-sm-con #password").attr("placeholder", "创建密码");
+        $("#have-login").html("已经加入了我们？登录");
+        $("#email").val("");
+        $("#password").val("");
+        setTimeout(function() {
+          $("#login>#button").css("box-shadow", "none");
+        }, 100);
+        $("#form,#red").css("display", "block");
+        $("#no-login,#uimg,#uname,#btn2").css("display", "none");
+        $("#button,#have-login")
+          .unbind("click")
+          .click(function() {
+            beginLogin();
+          });
+        $("#btn1").click(function() {
+          continue1();
+        });
+      }
+      function continue1() {
+        console.log("continue1");
+        reset();
+        //填写完注册或登录信息后的函数
+        var username = $("#email").val();
+        var password = $("#password").val();
+        console.log("username:" + username);
+        console.log("password:" + password);
+        var regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+        var regPhone = /^(1)\d{5,11}$/;
+
+        if (!regEmail.test(username) && !regPhone.test(username)) {
+          if ($("#button").html() == "注册") {
+            var tip1 = "呃...这看起来不像是一个电子邮件地址或电话号码。";
+            $(".email-tip").html(tip1);
+          } else {
+            var tip1 = "呃...这看起来不像是一个电子邮件地址。";
+            $(".email-tip").html(tip1);
+          }
+          $("#email").css({
+            "box-shadow": "#e3780c 0 0 0 4px",
+            "border-color": "#e3780c"
+          });
+        } else {
+          //检验密码格式，去掉可能的用户名错误提醒
+          $("#email").css({
+            "box-shadow": "none", //去掉第一次的黄色边框提醒
+            border: "1px rgb(142,142,142) solid"
+          });
+          $("#email").focus(function() {
+            //加上聚焦蓝色提醒功能
+            $(this).css("box-shadow", "rgb(35, 156, 255) 0 0 3px 3px");
+          });
+          $(".email-tip").html("");
+          if (password.length <= 6) {
+            //登录状态下检查密码
+            var tip2 = "密码太短了！需要6个以上字符。";
+            $(".password-tip").html(tip2);
+            $("#password").css({
+              "box-shadow": "#e3780c 0 0 0 4px",
+              "border-color": "#e3780c"
+            });
+          } else {
+            //登录状态下用户名和密码格式都合适（格式）
+            //暂时重新注册下一步吧
+            continue2();
+          }
+        }
+      }
+      function continue2() {
+        console.log("continue2");
+        reset(); //清空countinue2前错误的提示
+        //注册状态下用户名和密码都合适的函数
+        var username = $("#email").val();
+        var password = $("#password").val();
+        //防止第一次错误，第二次正确，提示未消失；
+        reset();
+        //我的cookie只能存1个用户名
+        delCookie("username");
+        delCookie("password");
+        setCookie("username", username);
+        setCookie("password", password);
+
+        //注册成功，用户和密码存在cookie中
+        $("#login-con h3").html("恭喜！注册成功！");
+        $("#login-con-div1").html("");
+        $("#email")
+          .val("")
+          .attr("placeholder", "请输入您的姓氏");
+        $("#password")
+          .val("")
+          .attr({ placeholder: "请输入您的名字", type: "text" });
+        $("#have-login").html("");
+        $("#button").css("display", "none");
+        $("#red").css("display", "none");
+
+        $("#btn1").unbind("click"); //移除原来的click
+        $("#btn1").click(function() {
+          continue3();
+        });
+      }
+      function continue3() {
+        console.log("continue3");
+        //信息完善后进行的函数
+        var firstName = $("#email").val();
+        var name = $("#password").val();
+        $("#user1").html(name.charAt(0).toUpperCase());
+        $("#user2").html(name);
+        delCookie("name"); //将名字和姓氏也存下来
+        delCookie("firstName");
+        setCookie("name", name);
+        setCookie("firstName", firstName);
+
+        //注册成功，信息完善成功；
+        //进入页面
+        $("#login").css("display", "none");
+        // $("#body").css("overflow","visible !important");
+        $("body").css("overflow", "visible");
+        //背后还原；
+        $("#login-con h3").html("注册以查看更多");
+        $("#login-con-div1").html(
+          " 使用免费账户获取&nbsp;Pinterest&nbsp;的最佳点子"
+        );
+        $("#email")
+          .val("")
+          .attr("placeholder", "电子邮箱");
+        $("#password")
+          .val("")
+          .attr({ placeholder: "创建密码", type: "password" });
+        $("#have-login").html("已经加入了我们？登录");
+        $("#button").css("display", "block");
+        $("#red").css("display", "block");
+        $("#btn1").unbind("click"); //移除第二次绑定的事件
+        $("#btn1").click(function() {
+          continue1();
+        });
+      }
+      function reset() {
+        //清空表单函数
+        $("#email").css({
+          "box-shadow": "none", //去掉第一次的黄色边框提醒
+          border: "1px rgb(142,142,142) solid"
+        });
+        $("#email").focus(function() {
+          //加上聚焦蓝色提醒功能
+          $(this).css("box-shadow", "rgb(35, 156, 255) 0 0 3px 3px");
+        });
+        $(".email-tip").html("");
+        $("#password").css({
+          "box-shadow": "none", //去掉第一次的黄色边框提醒
+          border: "1px rgb(142,142,142) solid"
+        });
+        $("#password").focus(function() {
+          //加上聚焦蓝色提醒功能
+          $(this).css("box-shadow", "rgb(35, 156, 255) 0 0 3px 3px");
+        });
+        $(".password-tip").html("");
+      }
+      //main.js
+      setInterval(function() {
+        //顶部搜索栏的
+        $("#login").css("width", $(window).width());
+        $("#login").css("height", $(window).height());
+        var aWidth = $(window).width();
+        var userWidth = $("#user").width();
+        var searchWidth = aWidth - 470 - userWidth + "px";
+        $("#search").css("width", searchWidth);
+        //控制列数
+
+        if ($(window).width() < 1200) {
+          $(".container").css("width", "900px");
+          $(".waterfall").css("column-count", "2");
+        } else if ($(window).width() < 1500) {
+          $(".container").css("width", "1200px");
+          $(".waterfall").css("column-count", "3");
+        } else if ($(window).width() < 1800) {
+          $(".container").css("width", "1500px");
+          $(".waterfall").css("column-count", "4");
+        } else {
+          $(".container").css("width", "1800px");
+          $(".waterfall").css("column-count", "5");
+        }
+      }, 30);
+      var name = getCookie("name") || "Guest";
+      $("#user1").html(name.charAt(0).toUpperCase());
+      $("#user2").html(name);
+      //鼠标移入，图片变色
+      $(".item").mouseenter(function() {
+        $(this).css("background", "rgb(240,240,240)");
+        $(this).append("<div class='star'>收藏</div>");
+        // $(".star").mouseover(function(){
+        //   $(".item").mouseover();
+        // })
+        $(this)
+          .children("p")
+          .html("为你精选");
+        $(this)
+          .children(".imgbg")
+          .children("img")
+          .css("opacity", "0.6");
+      });
+      $(".item").mouseleave(function() {
+        $(this).css("background", "#fff");
+        $(this)
+          .children(".star")
+          .remove();
+        $(this)
+          .children("p")
+          .html("");
+        $(this)
+          .children(".imgbg")
+          .children("img")
+          .css("opacity", "1");
+      });
+      //退出部分
+      var ck = 0;
+      $("#more").click(function() {
+        ck++;
+        if (ck % 2 == 1) {
+          $("#quit").css("display", "block");
+        } else {
+          $("#quit").css("display", "none");
+        }
+      });
+      //图片delay
+      $(".waterfall .item:gt(9)").css("display", "none");
+      var bc = 0; //到达底部的计数器；
+      setInterval(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(this).scrollTop();
+          var scrollHeight = $(document).height();
+          var windowHeight = $(this).height();
+          if (scrollTop + windowHeight == scrollHeight) {
+            //到底
+              bc++;
+            if (bc == 1) {
+              $(".waterfall .item:lt(15)").css("display", "block");
+            } else if (bc == 2) {
+              $(".waterfall .item:lt(20)").css("display", "block");
+            } else if (bc == 3) {
+              $(".waterfall .item:lt(25)").css("display", "block");
+            } else if (bc == 4) {
+              $(".waterfall .item:lt(30)").css("display", "block");
+            } else if (bc == 5) {
+              $(".waterfall .item:lt(35)").css("display", "block");
+            } else if (bc == 6) {
+              $(".waterfall .item:lt(40)").css("display", "block");
+            }
+          }
+        });
+      },200);
+    });
+  </script>
+</html>
