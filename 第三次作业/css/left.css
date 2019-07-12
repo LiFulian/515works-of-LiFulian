@@ -1,0 +1,58 @@
+#left-div {
+    width: 260px;
+    height: 700px;
+    border-right: 1px solid #cec6c6;
+    position: fixed;
+}
+
+#logo {
+    position: absolute;
+    top: 112px;
+    left: 116px;
+}
+
+#logo-img {
+    width: 27px;
+}
+
+#signIn {
+    width: 60px;
+    height: 250px;
+    position: absolute;
+    left: 110px;
+    bottom: 55px;
+}
+
+.cycle {
+    transform-origin: 22px 22px;
+    transform: rotate(-90deg);
+    transition: stroke-dasharray .3s ease-in;
+}
+
+.left-img1 {
+    position: absolute;
+    width: 11px;
+    top: 13px;
+    left: 16px;
+}
+
+.left-img2 {
+    position: absolute;
+    width: 22px;
+    top: 67px;
+    left: 11px;
+}
+
+.left-img3 {
+    position: absolute;
+    width: 20px;
+    top: 122px;
+    left: 12px;
+}
+
+.left-img4 {
+    position: absolute;
+    width: 22px;
+    top: 176px;
+    left: 11px;
+}

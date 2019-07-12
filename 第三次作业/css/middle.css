@@ -1,0 +1,54 @@
+#middle-div{
+    position: fixed;
+    top: 43%;
+    left: 26%;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+#middle-div p{
+    font-size:18px;
+    color: rgb(160,160,160);
+   position: absolute;
+   left: -30px;
+}
+#middle-div span{
+    color:rgb(160,160,160);
+    font-size: 1px;
+}
+    
+.middle-div-p1{
+    top:0px;
+    left:0 ;
+}
+.middle-div-p2{
+    top:40px;
+}
+.middle-div-p3{
+    top:80px;
+}
+.middle-div-p4{
+    top:120px;
+}
+#middle-div img{
+    position: absolute;
+    width: 15px;
+    opacity: 0;
+  right: -20px;
+}
+#middle-wave-bg{
+    position: fixed;
+    width:250px;
+    height: 35px;
+    top: 76%;
+    left: 42%;
+    overflow: hidden;
+}
+#middle-wave{
+    position: absolute;
+    background: url(../img/wave.png);
+    background-size: 250px;
+    width:1250px;
+    height: 35px;
+    left:0px;
+}

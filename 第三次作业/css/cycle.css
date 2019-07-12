@@ -1,0 +1,143 @@
+#div-img-cycle {
+   
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000000;
+    width:126px;
+    height: 126px;
+
+}
+#div-img-tr{
+    position: absolute;
+    width:126px;
+    height: 126px;
+    background: red;
+    opacity: 0;
+    z-index: 10000008;
+}
+#big-pink-cycle{
+    display: block;
+    position: absolute;
+    /* text-align: center; */
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: #fd979f;
+    z-index: 100000009;
+    
+}
+
+#img1 {
+    position: absolute;
+    left: 17px;
+    top: 17px;
+    width: 90px;
+    z-index: 10000001;
+    display: block;
+}
+
+#img2 {
+    display: none;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    width: 24px;
+    z-index: 10000002;
+}
+
+#img3 {
+    display: none;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    width: 44px;
+    z-index: 10000003;
+}
+
+#img4 {
+    display: none;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 64px;
+    z-index: 10000004;
+}
+
+#img5 {
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 84px;
+    z-index: 10000005;
+}
+
+#img6 {
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 104px;
+    z-index: 10000006;
+}
+
+#img7 {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 124px;
+    z-index: 10000007;
+}
+#c-all-in1 {
+    position: absolute;
+    overflow: hidden;
+    z-index: 10000012;
+}
+
+#c-all-in2 {
+    position: absolute;
+    font-size: 150px;
+    color: white;
+    text-align: center;
+    z-index: 10000012;
+    /* 字体部分，后来宽度为0，zindex不影响其他 */
+}
+#black-3bg{
+    position: absolute;
+    z-index: 10000010;
+}
+#black-3bg div{
+    background-color: black;
+}
+#black-bg1{
+    position: absolute;
+    z-index: 10000010;
+}
+#black-bg2{
+    position: absolute;
+    z-index: 10000010;
+}
+#black-bg3{
+    position: absolute;
+    z-index: 10000010;
+}
+#black-pink{
+    position: absolute;
+    /* z-index: 10000011; */
+   
+}
+#left-black{
+    position: absolute;
+    z-index: 100000011;
+    background-color: black;
+    opacity: 0;
+padding: 0 auto;
+}
+#right-pink{
+    position: absolute;
+    z-index: 10000011;
+    display: none;
+    background-color: #fd979f;
+}
