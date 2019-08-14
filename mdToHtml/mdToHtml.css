@@ -1,0 +1,29 @@
+.content{
+    width:900px;
+    height: 300px;
+    margin: 250px auto;
+}
+.div{
+    float: left;
+    height: 100%;
+    width: 33%;
+    font-size: 50px;
+    text-align: center;
+    border: 1px solid black; 
+}
+#con1{
+    background-color: aquamarine;
+}
+#con2{
+    background-color: rebeccapurple;
+}
+#con3{
+    background-color:khaki;
+}
+#btnId{
+    width: 200px;
+    height: 60px;
+    font-size: 30px;
+    border: 2px solid blue;
+    border-radius: 10px;
+}
